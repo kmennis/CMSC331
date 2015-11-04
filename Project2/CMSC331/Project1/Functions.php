@@ -55,7 +55,7 @@ function getAdvisorRowByID($row){
     return $secrow;
 
 }
-
+/**********************************************/
 function getStudentRowByID($row){
     global $debug; global $COMMON;
     $trdsql = "SELECT `FirstName`, `LastName` FROM `Proj2Students` WHERE `StudentID` = '$row[4]'";
@@ -65,4 +65,47 @@ function getStudentRowByID($row){
     return $trdrow;
 }
 /**********************************************/
+//Student First Name
+function getStudentFirstNameByID($id)
+{
+    global $debug; global $COMMON;
+    $trdsql = "SELECT `FirstName` FROM `Proj2Students` WHERE `StudentID` = '$id'";
+    $trdrs = $COMMON->executeQuery($trdsql, "Advising Appointments");
+    $trdname = mysql_fetch_row($trdrs);
 
+    return $trdname[0];
+}
+/**********************************************/
+//Studen Last Name
+function getStudentLastNameByID($id)
+{
+    global $debug; global $COMMON;
+    $trdsql = "SELECT `LastName` FROM `Proj2Students` WHERE `StudentID` = '$id'";
+    $trdrs = $COMMON->executeQuery($trdsql, "Advising Appointments");
+    $trdname = mysql_fetch_row($trdrs);
+
+    return $trdname[0];
+}
+/**********************************************/
+//Student Email
+function getStudentEmailByID($id)
+{
+    global $debug; global $COMMON;
+    $trdsql = "SELECT `Email` FROM `Proj2Students` WHERE `StudentID` = '$id'";
+    $trdrs = $COMMON->executeQuery($trdsql, "Advising Appointments");
+    $trdname = mysql_fetch_row($trdrs);
+
+    return $trdname[0];
+}
+/**********************************************/
+//Student MAjor
+function getStudentMajorByID($id)
+{
+    global $debug; global $COMMON;
+    $trdsql = "SELECT `Major` FROM `Proj2Students` WHERE `StudentID` = '$id'";
+    $trdrs = $COMMON->executeQuery($trdsql, "Advising Appointments");
+    $trdname = mysql_fetch_row($trdrs);
+
+    return $trdname[0];
+}
+/**********************************************/
