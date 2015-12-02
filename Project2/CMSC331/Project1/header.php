@@ -15,3 +15,4 @@ session_start();
         <div class="welcome">Welcome, <?php echo $_SESSION["firstN"] ?></div>
     </div>
 </div>
+<?php     ?>
