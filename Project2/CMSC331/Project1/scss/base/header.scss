@@ -9,6 +9,7 @@
   height:85px;
   width:100%;
   background:$white;
+  box-shadow: 6px 5px 8px #ccc;
 
   .header-holder{
     max-width:1130px;
@@ -18,7 +19,12 @@
       display:inline-block;
     }
     .welcome{
-      display:inline-block;
+      display: inline-block;
+      font-size: 20px;
+      height: 100%;
+      padding-left: 30px;
+      vertical-align: middle;
+      font-family: $base-font-family;
     }
   }
 }

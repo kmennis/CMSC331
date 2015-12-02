@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": ";AAOA,OAAO;EACL,MAAM,EAAC,IAAI;EACX,KAAK,EAAC,IAAI;EACV,UAAU,ECKY,IAAM;EDH5B,sBAAc;IACZ,SAAS,EAAC,MAAM;IAChB,MAAM,EAAC,IAAI;IAEX,4BAAK;MACH,OAAO,EAAC,YAAY;IAEtB,+BAAQ;MACN,OAAO,EAAC,YAAY",
-"sources": ["base/header.scss","base/_markup-variables.scss"],
+"mappings": "",
+"sources": [],
 "names": [],
 "file": "style.css"
 }

@@ -1,6 +1,5 @@
 
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,700|Shadows+Into+Light);
-
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700,400italic);
 
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
@@ -62,4 +61,24 @@ iframe{
   max-width:100% !important;
 
 }
+#login{
+  width:100% !important;
+  margin-top: 0 !important;
+  background:none !important;
 
+  #form{
+    margin:auto;
+    max-width:1130px;
+  }
+
+
+  .selections > form {
+    display: flex;
+    flex-wrap: wrap;
+    .button.large{
+      flex-grow:1;
+      width:50%;
+    }
+  }
+
+}
