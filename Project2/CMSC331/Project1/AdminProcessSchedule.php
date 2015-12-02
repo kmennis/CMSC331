@@ -2,6 +2,7 @@
 session_start();
 //Procceed to Individual or Group scheduling
 if ($_POST["next"] == "Group"){
+    //Not used???
 	$_SESSION["advisor"] = $_POST["next"];
 	header('Location: AdminScheduleGroup.php');
 }

@@ -150,3 +150,16 @@ function getAdvisorOffice($username)
     return $advisorName;
 }
 /**********************************************/
+/**********************************************/
+//Advisor password
+function getAdvisorPassword($username)
+{
+    global $debug; global $COMMON;
+    $sql2 = "select * from Proj2Advisors where `Username` = '$username'";
+    $rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
+    $row2 = mysql_fetch_row($rs2);
+    $advisorName = $row2[4];
+
+    return $advisorName;
+}
+/**********************************************/

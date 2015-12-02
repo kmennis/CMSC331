@@ -2,6 +2,7 @@
 session_start();
 $debug = false;
 include('../../CommonMethods.php');
+include('Functions.php');
 $COMMON = new Common($debug);
 ?>
 
@@ -82,7 +83,7 @@ $COMMON = new Common($debug);
           
           //get advisor id
           $User = $_SESSION["UserN"];
-          $Pass = $_SESSION["PassW"];
+          $Pass = getAdvisorPassword($_SESSION["UserN"]);
           $sql = "select `id` from `Proj2Advisors` where `Username` = '$User' and `Password` = '$Pass'";
           $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
           $row = mysql_fetch_row($rs);
@@ -116,7 +117,7 @@ $COMMON = new Common($debug);
         <p><span class="appAlreadyExist">!!</span> indicates that this appointment already exists. A repeat appointment was not made.</p>
       </div>
 	</div>
-	</form>
+	</div>
   </body>
   
 </html>

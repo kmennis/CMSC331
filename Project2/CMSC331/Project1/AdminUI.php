@@ -5,6 +5,7 @@ $debug = false;
 if($debug) { echo("Session variables-> ".var_dump($_SESSION)); }
 
 include('../../CommonMethods.php');
+include('Functions.php');
 $COMMON = new Common($debug);
 $_SESSION["PassCon"] = false;
 ?>
@@ -29,7 +30,7 @@ $_SESSION["PassCon"] = false;
 	}		
 
 		$User = $_SESSION["UserN"];
-		$Pass = $_SESSION["PassW"];
+		$Pass = getAdvisorPassword($_SESSION["UserN"]);
 		$sql = "SELECT `firstName` FROM `Proj2Advisors` 
 			WHERE `Username` = '$User' 
 			and `Password` = '$Pass'";
@@ -40,7 +41,9 @@ $_SESSION["PassCon"] = false;
 	?>
 	</h2>
 	<p>This is testing for the queries</p>
-            <p>This is my First Name <?php echo getAdvisorFirstName($_SESSION["UserN"])  ?>  </p>
+            <p>This is my First Name <?php echo getAdvisorFirstName($_SESSION["UserN"]);  ?>  </p>
+            <p> My office is in <?php echo getAdvisorOffice($_SESSION["UserN"]);  ?></p>
+            <p> My Last name is <?php   echo getAdvisorLastName($_SESSION["UserN"]); ?></p>
 	<form action="AdminProcessUI.php" method="post" name="UI">
   
 		<input type="submit" name="next" class="button large selection" value="Schedule appointments"><br>
@@ -59,11 +62,7 @@ $_SESSION["PassCon"] = false;
         </div>
         <div class="field">
           
-        </div>
-	</div>
+        <?php include('footer.php'); ?>
+	<?php //include('./workOrder/workButton.php'); ?>
 
-	<?php include('./workOrder/workButton.php'); ?>
 
-</body>
-  
-</html>
