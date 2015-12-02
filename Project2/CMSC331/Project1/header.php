@@ -6,9 +6,12 @@
  * Time: 10:30 AM
  */
 ?>
+<?php
+session_start();
+?>
 <div id="header">
     <div class="header-holder">
         <div class="logo"><img src="images/UMBC-horizontal-color.png"></div>
-        <div class="welcome">Welcome, <?php echo $_SESSION["UserN"]; ?></div>
+        <div class="welcome">Welcome, <?php echo $_SESSION["firstN"] ?></div>
     </div>
 </div>
