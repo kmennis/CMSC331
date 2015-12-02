@@ -1,0 +1,129 @@
+
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700,400italic);
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angle-double-right:before {
+  content: "\e600";
+}
+
+
+.icon-menu:before {
+  content: "\e601";
+}
+
+.icon-chevron-thin-left:before {
+  content: "\e602";
+}
+
+.icon-chevron-thin-right:before {
+  content: "\e603";
+}
+
+.icon-social-facebook:before {
+  content: "\e604";
+}
+//$mq-breakpoints: (
+//    // Base device classes
+//    mobile:      320px,
+//    tablet:      640px,
+//    desktop:    1024px,
+//    widescreen: 1200px,
+//    tvscreen:   1920px,
+//
+//    // Tweakpoints
+//    mobileLandscape: 480px
+//);
+
+// Show active breakpoint in top right corner of viewport
+// $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, widescreen, tvscreen);
+
+@import "base/markup-variables";
+//@import "base/markup-mixins";
+//@import "base/base-reset";
+@import "mq";
+@import "base/header";
+
+
+iframe{
+
+  max-width:100% !important;
+
+}
+#login{
+  width:100% !important;
+  margin-top: 0 !important;
+  background:none !important;
+
+  #form{
+    margin:auto;
+    max-width:1130px;
+  }
+
+
+  .selections > form {
+    display: flex;
+    flex-wrap: wrap;
+    .button.large{
+      flex-grow:1;
+      width:50%;
+    }
+  }
+
+}
+/*****OLD BUTTONS*****/
+
+.button-item{
+  line-height: 32px;
+  margin: 8px 0px 12px;
+}
+
+.button-item .button{
+  margin-right: 4px;
+  width: 70px;
+  padding: 0 8px;
+  text-align: center;
+}
+.button.selection {
+  background-color: #FFFFFF;
+  color: #003399;
+}
+
+.button.selection:hover {
+  background-color: #99CCFF;
+  color: #003399;
+}
+
+.button {
+  background-color: #768089;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  height: 25px;
+  overflow: visible;
+  padding: 0 12px;
+  margin: 5px auto 0;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: auto;
+  -moz-appearance: none;
+  -moz-border-radius: 4px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 4px;
+  line-height: 25px;
+}
