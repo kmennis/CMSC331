@@ -109,3 +109,44 @@ function getStudentMajorByID($id)
     return $trdname[0];
 }
 /**********************************************/
+
+/**********************************************/
+//Advisor FirstName
+function getAdvisorFirstName($username)
+{
+    global $debug; global $COMMON;
+    $sql2 = "select * from Proj2Advisors where `Username` = '$username'";
+    $rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
+    $row2 = mysql_fetch_row($rs2);
+    $advisorName = $row2[1];
+
+    return $advisorName;
+}
+/**********************************************/
+
+/**********************************************/
+//Advisor LastName
+function getAdvisorLastName($username)
+{
+    global $debug; global $COMMON;
+    $sql2 = "select * from Proj2Advisors where `Username` = '$username'";
+    $rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
+    $row2 = mysql_fetch_row($rs2);
+    $advisorName = $row2[2];
+
+    return $advisorName;
+}
+/**********************************************/
+/**********************************************/
+//Advisor Office
+function getAdvisorOffice($username)
+{
+    global $debug; global $COMMON;
+    $sql2 = "select * from Proj2Advisors where `Username` = '$username'";
+    $rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
+    $row2 = mysql_fetch_row($rs2);
+    $advisorName = $row2[5];
+
+    return $advisorName;
+}
+/**********************************************/

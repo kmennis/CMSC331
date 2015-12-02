@@ -1,10 +1,10 @@
 <?php
 session_start();
 //Grab all Session data
-$_SESSION["firstN"] = strtoupper($_POST["firstN"]);
-$_SESSION["lastN"] = strtoupper($_POST["lastN"]);
-$_SESSION["email"] = $_POST["email"];
-$_SESSION["major"] = $_POST["major"];
+//$_SESSION["firstN"] = strtoupper($_POST["firstN"]);
+//$_SESSION["lastN"] = strtoupper($_POST["lastN"]);
+//$_SESSION["email"] = $_POST["email"];
+//$_SESSION["major"] = $_POST["major"];
 
 //Update variables where fields are changed
 $firstn = strtoupper($_POST["firstN"]);

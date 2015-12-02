@@ -39,7 +39,8 @@ $_SESSION["PassCon"] = false;
 		echo $row[0];
 	?>
 	</h2>
-	
+	<p>This is testing for the queries</p>
+            <p>This is my First Name <?php echo getAdvisorFirstName($_SESSION["UserN"])  ?>  </p>
 	<form action="AdminProcessUI.php" method="post" name="UI">
   
 		<input type="submit" name="next" class="button large selection" value="Schedule appointments"><br>
