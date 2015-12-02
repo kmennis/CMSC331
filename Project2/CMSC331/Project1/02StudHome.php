@@ -9,6 +9,7 @@ session_start();
 	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
   </head>
   <body>
+  <?php include('header.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
