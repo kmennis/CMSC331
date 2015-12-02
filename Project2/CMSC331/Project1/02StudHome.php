@@ -66,7 +66,7 @@ session_start();
                 $widthCounter++;
 				echo "<button type='submit' name='selection' class='button large selection " . $widthName . $widthCounter ."' value='Reschedule'>Reschedule my appointment</button><br>";
                 $widthCounter++;
-				echo "<button type='submit' name='selection' class='button large selection' value='Cancel'>Cancel my appointment</button><br>";
+				echo "<button type='submit' name='selection' class='button large selection " . $widthName . $widthCounter ."' value='Cancel'>Cancel my appointment</button><br>";
                 $widthCounter++;
 			}
             //Always show these options
