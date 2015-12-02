@@ -3,7 +3,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
-  speak: none;
+  //speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -55,6 +55,14 @@
 @import "mq";
 @import "base/header";
 
+html{
+
+  font-family:$base-font-content;
+  font-size: 13px;
+  position: relative;
+}
+
+
 
 iframe{
 
@@ -71,17 +79,52 @@ iframe{
     max-width:1130px;
   }
 
+  .button-fancy{
+
+  }
 
   .selections > form {
     display: flex;
     flex-wrap: wrap;
-    .button.large{
+    .large{
       flex-grow:1;
-      width:50%;
+
+      &.thewidth1, &.thewidth3, &.thewidth5, &.thewidth7{
+          width:69%
+      }
+      &.thewidth2, &.thewidth4, &.thewidth6{
+          width:29%
+
+      }
+      &.gear{
+
+      }
+      &.button-fancy{
+        border: 3px solid #ccc;
+        //color: #fff;
+        background:none;
+        cursor: pointer;
+        //display: inline-block;
+        font-size: 11px;
+        font-weight: bold;
+        height: 300px;
+        overflow: visible;
+        //padding: 50px;
+        margin: 5px;
+        text-decoration: none;
+        vertical-align: top;
+        white-space: nowrap;
+        -moz-appearance: none;
+        -moz-border-radius: 4px;
+        -webkit-appearance: none;
+        -webkit-border-radius: 4px;
+        line-height: 25px;
+      }
     }
   }
 
 }
+
 /*****OLD BUTTONS*****/
 
 .button-item{

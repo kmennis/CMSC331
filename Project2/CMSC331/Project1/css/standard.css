@@ -1,10 +1,3 @@
-html{ 
-      background-color: 
-      #99CCFF; 
-      font-family: Arial; 
-      font-size: 13px; 
-      position: relative; 
-      }
 
       body{ 
       margin: 0; 
@@ -158,13 +151,6 @@ html{
         .button-item { margin: 8px 8px 12px; }
       }
 /*---------------------------------*/
-html{
-    background-color:
-    #99CCFF;
-    font-family: Arial;
-    font-size: 13px;
-    position: relative;
-}
 
 body{
     margin: 0;

@@ -62,19 +62,19 @@ session_start();
                 $widthCounter++;
 			}
 			else{
-				echo "<button type='submit' name='selection' class='large button-fancy button-fancy" . $widthName . $widthCounter ."' value='View'>View my appointment</button><br>";
+				echo "<button type='submit' name='selection' class='large button-fancy button-fancy " . $widthName . $widthCounter ."' value='View'>View my appointment</button><br>";
                 $widthCounter++;
-				echo "<button type='submit' name='selection' class=' large selection button-fancy" . $widthName . $widthCounter ."' value='Reschedule'>Reschedule my appointment</button><br>";
+				echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='Reschedule'>Reschedule my appointment</button><br>";
                 $widthCounter++;
-				echo "<button type='submit' name='selection' class=' large selection button-fancy" . $widthName . $widthCounter ."' value='Cancel'>Cancel my appointment</button><br>";
+				echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='Cancel'>Cancel my appointment</button><br>";
                 $widthCounter++;
 			}
             //Always show these options
-			echo "<button type='submit' name='selection' class=' large selection button-fancy" . $widthName . $widthCounter ."' value='Search'>Search for appointment</button><br>";
+			echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='Search'>Search for appointment</button><br>";
         $widthCounter++;
-			echo "<button type='submit' name='selection' class=' large selection button-fancy" . $widthName . $widthCounter ."' value='Edit'>Edit student information</button><br>";
+			echo "<button type='submit' name='selection' class='gear large selection button-fancy " . $widthName . $widthCounter ."' value='Edit'>Edit student information</button><br>";
         $widthCounter++;
-            echo "<button type='submit' name='selection' class=' large selection button-fancy" . $widthName . $widthCounter ."' value='NextApp'>View Next Appointment Available</button><br>";
+            echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='NextApp'>View Next Appointment Available</button><br>";
         $widthCounter++;
 
         ?>
