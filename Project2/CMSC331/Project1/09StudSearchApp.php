@@ -68,5 +68,5 @@ $COMMON = new Common($debug);
 		</div>
 		</form>
 
-  </body>
-</html>
+<!--Include footer-->
+<link rel="import" href="footer.php">

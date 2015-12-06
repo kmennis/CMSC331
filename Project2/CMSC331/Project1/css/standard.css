@@ -25,23 +25,7 @@
       border-radius: 8px; 
       }
 
-	h1{ 
-      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; 
-      font-size: 36px; 
-	  text-align: center;
-      line-height: 50px; 
-      margin: 0; 
-      padding: 0; 
-      }
-	  
-      h2{ 
-      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; 
-      font-size: 24px; 
-	  text-align: center;
-      line-height: 30px; 
-      margin: 0; 
-      padding: 0; 
-      }
+
 
       ul{ 
       margin: 8px 20px; 
@@ -73,42 +57,12 @@
 	  }
 
       
-      .button:hover {
-        background-color: #87929D;
-        color: #fff;
-        text-decoration: none;
-      }
-      
-      a.button.large {
-        line-height: 32px;
-      }
-      
-      .button.large {
-        font-size: 16px;
-        height: 32px;
-        padding: 0 16px;
-		position: center;
-      }
-      
-      .button.go {
-        background-color: #66AA44;
-        color: #FFF;
-      }
-      
-      .button.go:hover {
-        background-color: #70B74E;
-        color: #FFF;
-      }
+
        
       .field{ 
       margin: 8px 0; 
       }
 
-      .field label{ 
-      display: block; 
-      font-weight: bold; 
-      font-size: 14px; 
-      }
 	  
       .actions{ 
       text-align: right; 
@@ -121,10 +75,7 @@
       color: #666;
       }
 
-      .top{ 
-      border-bottom: 1px solid #eee; 
-      padding-bottom: 12px; 
-      }
+
 
       .actions{ 
       overflow: hidden; 
@@ -173,19 +124,8 @@ a{
     margin: 8px 0;
 }
 
-.field label{
-    display: block;
-    font-size: 20px;
-    text-align: center;
-}
 
 
-
-
-.top{
-    border-bottom: 1px solid #eee;
-    padding-bottom: 12px;
-}
 
 
 
@@ -239,11 +179,7 @@ select{
 
 
 
-.field label{
-    display: block;
-    font-weight: bold;
-    font-size: 14px;
-}
+
 
 .actions{
     text-align: right;

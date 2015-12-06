@@ -3,28 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <title>UMBC COEIT Engineering and Computer Science Advising Admin Sign In</title>
-      <link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <div id="header" class="home">
+      <div class="header-holder">
+          <div class="logo"><img src="images/umbcpng.png"></div>
+      </div>
+  </div>
+  <div class="banner">
+      <div class="banner-holder">
+          <div class="image">
+              <img src="images/umbcbanner.jpg">
+          </div>
+      </div>
+  </div>
   <div id="login">
       <div id="form">
           <div class="top">
               <h1>UMBC COEIT Engineering and Computer Science Advising</h1>
-              <h2>Admin Sign In</h2>
+              <h4>Admin Sign In</h4>
 
-              <?php
-      if($_SESSION["UserVal"] == true){
-        echo "<h3 style='color:red'>Invalid Username/Password combination</h3>";
-              }
-              ?>
               <form action="AdminProcessSignIn.php" method="POST" name="SignIn">
 
-                  <div class="field">
+                  <div class="field fancy-form">
                       <label for="UserN">Username</label>
                       <input id="UserN" size="20" maxlength="50" type="text" name="UserN" required autofocus>
                   </div>
 
-                  <div class="field">
+                  <div class="field fancy-form">
                       <label for="PassW">Password</label>
                       <input id="PassW" size="20" maxlength="50" type="password" name="PassW" required>
                   </div>

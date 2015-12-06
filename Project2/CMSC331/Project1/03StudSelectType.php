@@ -1,19 +1,24 @@
 <?php
 session_start();
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Select Advising Type</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+<?php include('header.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
 		<h1>Schedule Appointment</h1>
-		<h2>What kind of advising appointment would you like?</h2><br>
+		<h3>What kind of advising appointment would you like?</h3><br>
             <!--SELECT group OR single appt. and move on to next step in appt. -->
 	<form action="StudProcessType.php" method="post" name="SelectType">
 	<div class="nextButton">
@@ -32,5 +37,6 @@ session_start();
 		<input type="submit" name="home" class="button large" value="Cancel">
 		</form>
 		</div>
-  </body>
-</html>
+
+<!--Included footer-->
+          <?php include('footer.php') ?>

@@ -4,7 +4,14 @@ html {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
-
+::selection {
+  background: #ffc20e; /* WebKit/Blink Browsers */
+  color:black;
+}
+::-moz-selection {
+  background: #ffc20e; /* Gecko Browsers */
+  color:black;
+}
 body { 
 	margin: 0;
 	color: $base-text-color;
@@ -40,7 +47,7 @@ input,
 textarea,
 select {
 	font: 100% $base-font-family;
-	color: $base-form-text-color;
+	color: #666;
 	vertical-align: middle;
 }
 
@@ -75,12 +82,12 @@ input[type="password"],
 input[type="search"],
 textarea {
 	margin: 0;
-	padding: 4px 7px;
+	padding: 8px 14px;
 	-webkit-appearance:none;
 	-webkit-border-radius:0;
-	border: 1px solid $base-input-border-color;
+	border: 1px solid #ccc;
 	&:focus {
-		border-color: darken($base-input-border-color, 30%); 
+		box-shadow:0 2px 5px rgba(255, 194, 14, 0.51);
 		//outline: none;
 	}
 }
@@ -93,7 +100,9 @@ textarea {
 
 input[type="checkbox"],
 input[type="radio"] {
-	padding: 0; 
+	padding: 0;
+  margin:0 5px 5px 0;
+
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -105,21 +114,23 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $base-font-family;
 	line-height: 1.2em;
 	margin: 0 0 1.2em;
-	color:$blue-gray;
+	color:$black;
     font-weight:normal;
 }
 h1{
   font-size:36px;
+  margin-top:20px;
+  margin-bottom:20px;
 }
 h2{
 font-size:32px;
-  margin-bottom: 10px;
-  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 h3{
   font-size: 26px;
-  margin-bottom: 10px;
-  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 h4{
   font-size: 24px;

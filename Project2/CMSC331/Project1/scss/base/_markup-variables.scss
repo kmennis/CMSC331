@@ -4,8 +4,8 @@ $white: #fff;
 $mountain-mist: #999;
 $ironside-gray: #666;
 $cod-gray:#0a0a0a;
-$blue-gray:#254322;
-$half-baked:#74b06e;
+$yellow:#ffc20e;
+$red:#ed1c24;
 $black-squeez:#f5fafa;
 $bon-jour:#e1e1e1;
 
@@ -14,15 +14,15 @@ $otherBackground: #fbf9f1;
 // base variables
 $base-text-color: $cod-gray;
 $base-background-color: $white;
-$base-link-color: $blue-gray;
+$base-link-color: $red;
 $base-form-text-color: $black;
 $base-form-placeholder-color: $mountain-mist;
 $base-input-border-color: $mountain-mist;
 
 $base-font-size: 18px;
 $base-line-height: 1.25;
-$base-font-family: 'Lora',serif;
-$base-font-content:'Lora', serif;
+$base-font-family: 'Roboto', sans-serif;
+$base-font-content:'Roboto', sans-serif;
 //$base-fancy-font: 'Shadows Into Light' , cursive;
 $base-text-interval: ($base-font-size * $base-line-height);
 

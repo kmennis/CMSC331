@@ -3,36 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <title>UMBC COEIT Engineering and Computer Science Advising Student Sign In</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <div id="header" class="home">
+      <div class="header-holder">
+          <div class="logo"><img src="images/umbcpng.png"></div>
+      </div>
+  </div>
+  <div class="banner">
+      <div class="banner-holder">
+          <div class="image">
+              <img src="images/umbcbanner.jpg">
+          </div>
+      </div>
+  </div>
    <!-- Log in With All student Info to start session -->
     <div id="login">
-		<div><b><font color="red" size="1"></font>This works best using any browser <u>OTHER</u> than IE.</b></div>
+
       <div id="form">
         <div class="top">
 		<h1>COEIT Engineering and Computer Science Advising</h1>
-		<h2>Student Sign In-Sign Up</h2><br>
+		<h4>Student Sign In-Sign Up</h4><br>
 
         <!-- Form goes to StudProccessSignIn.php -->
         <form action="StudProcessSignIn.php" method="post" name="SignIn">
-	    <div class="field">
+	    <div class="field fancy-form">
 	      <label for="firstN">First Name</label>
 	      <input id="firstN" size="30" maxlength="20" type="text" name="firstN" required autofocus>
 	    </div>
-	    <div class="field">
+	    <div class="field fancy-form">
 	      <label for="lastN">Last Name</label>
 	      <input id="lastN" size="30" maxlength="20" type="text" name="lastN" required>
 	    </div>
-        <div class="field">
+        <div class="field fancy-form">
             <label for="studID">Student ID</label>
             <input id="studID" size="30" maxlength="7" type="text" pattern="[A-Za-z]{2}[0-9]{5}" title="AB12345" placeholder="AB12345" name="studID" required>
         </div>
-		<div class="field">
+		<div class="field fancy-form">
             <label for="email">E-mail</label>
             <input id="email" size="30" maxlength="40" type="email" name="email" placeholder="student1@umbc.edu" required>
         </div>
-        <div class="field">
+        <div class="field fancy-form">
               <label for="major">Major</label>
               <select id="major" name = "major">
 				<option value="CMPE">Computer Engineering</option>
@@ -81,13 +94,14 @@
 				<option>Other</option> -->
 				</select>
         </div>
+            <div><b><font color="red" size="1"></font>This works best using any browser <u>OTHER</u> than IE.</b></div>
 	    <div class="nextButton">
 			<input type="submit" name="next" class="button large go" value="Next">
 	    </div>
 		</div>
 		</form>
 
-<b><font color="red" size="5">This is in TESTING mode only!!! You are creating simulated appointments!!!</font></b>
+
 
   </body>
   

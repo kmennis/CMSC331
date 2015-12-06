@@ -32,7 +32,7 @@ session_start();
 		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 
-	      <input id="Date" type="date" name="Date" placeholder="mm/dd/yyyy" min="2015-08-01" max="2015-10-30" required autofocus> (mm/dd/yyyy)
+	      <input id="Date" type="date" name="Date" placeholder="mm/dd/yyyy" min="2015-08-01" max="2015-12-30" required autofocus> (mm/dd/yyyy)
 	    </div>
 
 	    <div class="field">
@@ -58,10 +58,10 @@ session_start();
 
       <div class="field">
         <label for="Majors">Majors</label>
-          <input type="checkbox" name="major[]" value="Computer Engineering" checked>Computer Engineering
-          <input type="checkbox" name="major[]" value="Computer Science" checked>Computer Science
-          <input type="checkbox" name="major[]" value="Mechanical Engineering" checked>Mechanical Engineering
-          <input type="checkbox" name="major[]" value="Chemical Engineering" checked>Chemical Engineering
+          <input value="CMPE" type="checkbox" name="major[]" value="Computer Engineering" checked>Computer Engineering
+          <input value="CMSC" type="checkbox" name="major[]" value="Computer Science" checked>Computer Science
+          <input  value="MENG" type="checkbox" name="major[]" value="Mechanical Engineering" checked>Mechanical Engineering
+          <input  value="CENG" type="checkbox" name="major[]" value="Chemical Engineering" checked>Chemical Engineering
       </div>
 
         <div class="field">

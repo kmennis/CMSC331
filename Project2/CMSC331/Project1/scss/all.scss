@@ -1,5 +1,5 @@
 
-@import url(https://fonts.googleapis.com/css?family=Lora:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
@@ -51,7 +51,7 @@
 
 @import "base/markup-variables";
 //@import "base/markup-mixins";
-//@import "base/base-reset";
+@import "base/base-reset";
 @import "mq";
 @import "base/header";
 
@@ -64,6 +64,7 @@ html{
 
 
 
+
 iframe{
 
   max-width:100% !important;
@@ -71,12 +72,15 @@ iframe{
 }
 #login{
   width:100% !important;
+  background-image: url("images/dotback.png");
   margin-top: 0 !important;
-  background:none !important;
+  padding:0 20px !important;
 
   #form{
     margin:auto;
     max-width:1130px;
+    background:$white;
+    padding:20px;
   }
 
   .button-fancy{
@@ -86,28 +90,36 @@ iframe{
   .selections > form {
     display: flex;
     flex-wrap: wrap;
+
     .large{
       flex-grow:1;
 
-      &.thewidth1, &.thewidth3, &.thewidth5, &.thewidth7{
-          width:69%
+      &.thewidth1, &.thewidth4, &.thewidth5, &.thewidth7{
+          //width:69%
       }
-      &.thewidth2, &.thewidth4, &.thewidth6{
-          width:29%
+      &.thewidth2, &.thewidth3, &.thewidth6{
+          //width:29%
 
       }
       &.gear{
 
       }
       &.button-fancy{
-        border: 3px solid #ccc;
+        @include breakpoint($tablet){
+          width:47%;
+        }
+        @include breakpoint($mobile){
+          width:100%;
+        }
+        width:32%;
+        border: none;
         //color: #fff;
-        background:none;
+        background:rgba(237, 28, 36, 0.68) none repeat scroll 0 0;
         cursor: pointer;
         //display: inline-block;
         font-size: 11px;
-        font-weight: bold;
-        height: 300px;
+        //font-weight: bold;
+        height: 250px;
         overflow: visible;
         //padding: 50px;
         margin: 5px;
@@ -119,6 +131,95 @@ iframe{
         -webkit-appearance: none;
         -webkit-border-radius: 4px;
         line-height: 25px;
+        position: relative;
+        &.pencil{
+          &:before{
+            content:"\f040";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+          }
+        }
+        &.eye{
+        &:before{
+          content:"\f06e";
+          font-family:FontAwesome;
+          height:50px;
+          width:50px;
+          font-size:63px;
+          color:white;
+          opacity: 1;
+        }
+        }
+        &.redo{
+          &:before{
+            content:"\f01e";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+          }
+        }
+        &.mag-glass{
+          &:before{
+            content:"\f002";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+          }
+        }
+        &.cog{
+          &:before{
+            content:"\f013";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+          }
+        }
+        &.calendar{
+          &:before{
+            content:"\f073";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+          }
+        }
+        &.ban{
+          &:before{
+            content:"\f05e";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+          }
+        }
+
+        span{
+          font-size:24px;
+          position:absolute;
+          color:white;
+          bottom:18px;
+          left:50%;
+          transform:translateX(-50%);
+          -webkit-transform:translateX(-50%);
+
+        }
       }
     }
   }
@@ -149,17 +250,17 @@ iframe{
 }
 
 .button {
-  background-color: #768089;
-  border: none;
-  color: #fff;
+  background-color: $white;
+  color: $red;
+  border:1px solid $red;
   cursor: pointer;
   display: inline-block;
-  font-size: 11px;
-  font-weight: bold;
-  height: 25px;
+  font-size: 18px;
+  //font-weight: bold;
+  height: 40px;
   overflow: visible;
-  padding: 0 12px;
-  margin: 5px auto 0;
+  padding: 0 30px;
+  margin: 20px 10px 20px 0;
   text-decoration: none;
   vertical-align: top;
   white-space: nowrap;
@@ -169,4 +270,63 @@ iframe{
   -webkit-appearance: none;
   -webkit-border-radius: 4px;
   line-height: 25px;
+  &:hover{
+    background:$red;
+    color:$white;
+  }
+}
+
+
+/** Banner **/
+.banner{
+  position:relative;
+  .banner-holder{
+    height: 250px;
+    overflow: hidden;
+    width: 100%;
+    .image{
+      left: 50%;
+      position: relative;
+      top: 0;
+      transform: translateX(-50%);
+      -webkit-transform:translateX(-50%);
+
+      img{
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        -webkit-transform:translateX(-50%);
+        max-width:unset;
+        max-width:initial;
+      }
+    }
+  }
+}
+/***** BANNER END ******/
+.field label{
+  display: block;
+  font-size: 18px;
+  //padding-bottom:30px;
+}
+
+/***** Form Styling ******/
+
+  .fancy-form{
+    color:#666;
+    padding-bottom:22px;
+    label{
+      padding-bottom:5px;
+    }
+    select{
+      padding: 5px 20px;
+      option{
+        padding:5px;
+      }
+    }
+}
+.statusMessage {
+  margin: 20px 0;
+}
+.info{
+  margin-bottom:20px;
 }

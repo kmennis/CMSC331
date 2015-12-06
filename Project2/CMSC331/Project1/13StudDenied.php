@@ -1,16 +1,21 @@
 <?php
 session_start();
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Exit Message</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header.php');  ?>
     <div id="login">
-      <form id="form">
+      <div id="form">
         <div class="top">
             <!-- Sorry! Someone took that appointment or there was an error -->
 	    <div class="statusMessage">
@@ -20,7 +25,9 @@ session_start();
 	    <div class="returnButton">
 			<input type="submit" name="return" class="button large go" value="Return to Home">
 	    </div>
-		</div>
+
 		</form>
-  </body>
-</html>
+		</div>
+
+<!--Include footer-->
+<?php  include('footer.php') ?>

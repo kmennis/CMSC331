@@ -1,15 +1,21 @@
 <?php
 session_start();
 $debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
+//Include functions
+include "Functions.php";
 
 if(isset($_POST["advisor"])){
 	$_SESSION["advisor"] = $_POST["advisor"];
 }
 
 $localAdvisor = $_SESSION["advisor"];
-$localMaj = $_SESSION["major"];
-include('../../CommonMethods.php');
-$COMMON = new Common($debug);
+
+//Get student Major from Function
+$localMaj = getStudentMajorByID($_SESSION["studID"]);
+
+
 
 $sql = "select * from Proj2Advisors where `id` = '$localAdvisor'";
 $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
@@ -21,10 +27,12 @@ $advisorName = $row[1]." ".$row[2];
   <head>
     <meta charset="UTF-8" />
     <title>Select Appointment</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   </head>
   <body>
+  <?php include('header.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -77,5 +85,6 @@ $advisorName = $row[1]." ".$row[2];
 		<p>Note: Appointments are maximum 30 minutes long.</p>
 		<p style="color:red">If there are no more open appointments, contact your advisor or click <a href='02StudHome.php'>here</a> to start over.</p>
 		</div>
-  </body>
-</html>
+
+<!--Include footer-->
+<?php include('footer.php'); ?>

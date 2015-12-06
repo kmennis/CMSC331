@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <html lang="en">
@@ -8,6 +13,7 @@ session_start();
     <title>Student Advising Home</title>
 	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
       <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 
   </head>
@@ -16,7 +22,7 @@ session_start();
     <div id="login">
       <div id="form">
         <div class="top">
-		<h2>Hello 
+		<h2>
 		<?php
 			echo $_SESSION["firstN"];
             echo $_SESSION["Major"];
@@ -31,9 +37,7 @@ session_start();
 		<form action="StudProcessHome.php" method="post" name="Home">
          <!-- Confirm if a student exists, if they have app. or if admin has cancelled   -->
 	    <?php
-			$debug = false;
-			include('../../CommonMethods.php');
-			$COMMON = new Common($debug);
+
 			
 			$_SESSION["studExist"] = false;
 			$adminCancel = false;
@@ -58,23 +62,23 @@ session_start();
 				if($adminCancel == true){
 					echo "<p style='color:red'>The advisor has cancelled your appointment! Please schedule a new appointment.</p>";
 				}
-				echo "<button type='submit' name='selection' class='large selection button-fancy " . $widthName . $widthCounter ."  value='Signup'>Signup for an appointment</button><br>";
+				echo "<button type='submit' value='Signup' name='selection' class='large selection button-fancy pencil " . $widthName . $widthCounter ."  ><span>Signup for an appointment</span></button><br>";
                 $widthCounter++;
 			}
 			else{
-				echo "<button type='submit' name='selection' class='large button-fancy button-fancy " . $widthName . $widthCounter ."' value='View'>View my appointment</button><br>";
+				echo "<button type='submit' name='selection' class='large button-fancy button-fancy eye " . $widthName . $widthCounter ."' value='View'><span>View my appointment</span></button><br>";
                 $widthCounter++;
-				echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='Reschedule'>Reschedule my appointment</button><br>";
+				echo "<button type='submit' name='selection' class=' large selection button-fancy redo " . $widthName . $widthCounter ."' value='Reschedule'><span>Reschedule my appointment</span></button><br>";
                 $widthCounter++;
-				echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='Cancel'>Cancel my appointment</button><br>";
+				echo "<button type='submit' name='selection' class=' large selection button-fancy ban " . $widthName . $widthCounter ."' value='Cancel'><span>Cancel my appointment</span></button><br>";
                 $widthCounter++;
 			}
             //Always show these options
-			echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='Search'>Search for appointment</button><br>";
+			echo "<button type='submit' name='selection' class=' large selection button-fancy mag-glass " . $widthName . $widthCounter ."' value='Search'><span>Search for appointment<span></button><br>";
         $widthCounter++;
-			echo "<button type='submit' name='selection' class='gear large selection button-fancy " . $widthName . $widthCounter ."' value='Edit'>Edit student information</button><br>";
+			echo "<button type='submit' name='selection' class='gear large selection button-fancy cog " . $widthName . $widthCounter ."' value='Edit'><span>Edit student information</span></button><br>";
         $widthCounter++;
-            echo "<button type='submit' name='selection' class=' large selection button-fancy " . $widthName . $widthCounter ."' value='NextApp'>View Next Appointment Available</button><br>";
+            echo "<button type='submit' name='selection' class=' large selection button-fancy calendar " . $widthName . $widthCounter ."' value='NextApp'><span>View Next Appt. Available</span></button><br>";
         $widthCounter++;
 
         ?>

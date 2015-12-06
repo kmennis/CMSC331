@@ -12,9 +12,11 @@ $studID = $_SESSION["studID"];
   <head>
     <meta charset="UTF-8" />
     <title>View Appointment</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header.php');  ?>
     <div id="login">
       <form id="form">
         <div class="top">
@@ -40,13 +42,14 @@ $studID = $_SESSION["studID"];
 					$row2 = mysql_fetch_row($rs2);
 					$advisorName = $row2[1] . " " . $row2[2];
                     $office = $row2[5];*/
+                    $newInfo = getAdvisorNameAndOffice($advisorID);
                     $advisorName = $newInfo[0];
                     $office = $newInfo[1];
 				}
 				else{$advisorName = "Group";}
 
                 //Print out Info for appointment
-				echo "<label for='info'>";
+				echo "<label class='info' for='info'>";
 				echo "Advisor: ", $advisorName, "<br>";
 				echo "Appointment: ", date('l, F d, Y g:i A', $datephp) , "<br>";
                 echo "Location of Appointment: " .$office .  "</label>";
@@ -72,5 +75,5 @@ $studID = $_SESSION["studID"];
 
 		</div>
 		</form>
-  </body>
-</html>
+<!--Include footer-->
+<?php include('footer.php');  ?>

@@ -9,9 +9,11 @@ $COMMON = new Common($debug);
   <head>
     <meta charset="UTF-8" />
     <title>Select Advisor</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -42,5 +44,6 @@ $COMMON = new Common($debug);
 		<input type="submit" name="home" class="button large" value="Cancel">
 		</form>
 		</div>
-  </body>
-</html>
+    
+    <!--Include footer-->
+   <?php  include('footer.php'); ?>

@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +11,8 @@ session_start();
   <head>
     <meta charset="UTF-8" />
     <title>Create New Admin</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
      <script type="text/javascript">
     //   window.onload = function () {
@@ -26,6 +31,7 @@ session_start();
     // </script>
   </head>
    <body>
+   <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -36,30 +42,30 @@ session_start();
       }
     ?>  <!-- Create a New Advisor -->
 		<form action="AdminProcessCreateNew.php" method="post" name="Create">
-		<div class="field">
+		<div class="field fancy-form">
 	      		<label for="firstN">First Name</label>
 	      		<input id="firstN" size="20" maxlength="50" type="text" name="firstN" required autofocus>
 	    	</div>
 
-	    	<div class="field">
+	    	<div class="field fancy-form">
 	     		<label for="lastN">Last Name</label>
 	      		<input id="lastN" size="20" maxlength="50" type="text" name="lastN" required>
 	   	</div>
-            <div class="field">
+            <div class="field fancy-form">
                 <label for="Office">Office for Advising</label>
                 <input id="Office" size="20" maxlength="30" type="text" name="Office" required>
             </div>
-            <div class="field">
+            <div class="field fancy-form">
 	     		<label for="UserN">Username</label>
 	      		<input id="UserN" size="20" maxlength="50" type="text" name="UserN" required>
 	   	</div>	 
 
-		<div class="field">
+		<div class="field fancy-form">
 	     		<label for="PassW">Password</label>
 	      		<input id="PassW" size="20" maxlength="50" type="password" name="PassW" required>
 	   	</div>	
 
-		<div class="field">
+		<div class="field fancy-form">
 	     		<label for="ConfP">Confirm Password</label>
 	      		<input id="ConfP" size="20" maxlength="50" type="password" name="ConfP" required>
 	   	</div>	
@@ -74,7 +80,4 @@ session_start();
 		</form>
 
 	</div>
-	</div>
-	</div>
-  </body>
-</html>
+	<?php include('footer.php');  ?>

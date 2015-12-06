@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+//Include functions.php
+include "Functions.php";
+
 //If group is selected, go to group select time
 if ($_POST["type"] == "Group"){
 	$_SESSION["advisor"] = $_POST["type"];

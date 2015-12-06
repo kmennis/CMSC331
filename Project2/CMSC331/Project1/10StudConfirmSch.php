@@ -1,14 +1,22 @@
 <?php
 session_start();
 $_SESSION["appTime"] = $_POST["appTime"]; // radio button selection from previous form
+$debug = false;
+include('../../CommonMethods.php');
+include('Functions.php');
+$COMMON = new Common($debug);
+//Include functions
+include "Functions.php";
 ?>
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Confirm Appointment</title>
-      <link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <body>
+  <?php include('header.php');  ?>
 	<div id="login">
       <div id="form">
         <div class="top">
@@ -16,16 +24,15 @@ $_SESSION["appTime"] = $_POST["appTime"]; // radio button selection from previou
 	    <div class="field">
 		<form action = "StudProcessSch.php" method = "post" name = "SelectTime">
 	    <?php
-			$debug = false;
-			include('../../CommonMethods.php');
-            include('Functions.php');
-			$COMMON = new Common($debug);
+
 			
-			$firstn = $_SESSION["firstN"];
-			$lastn = $_SESSION["lastN"];
+			//Changed to function calls
+			$firstn = getStudentFirstNameByID($_SESSION["firstN"]);
+			$lastn = getStudentLastNameByID($_SESSION["lastN"]);
 			$studid = $_SESSION["studID"];
-			$major = $_SESSION["major"];
-			$email = $_SESSION["email"];
+			$major = getStudentMajorByID($_SESSION["major"]);
+			$email = getStudentEmailByID($_SESSION["email"]);
+			
 			//Get user appointment
 			if($_SESSION["resch"] == true){
 				$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
@@ -44,7 +51,7 @@ $_SESSION["appTime"] = $_POST["appTime"]; // radio button selection from previou
 				}
 				else{$oldAdvisorName = "Group";}
 				//Display previous appointment
-				echo "<h2>Previous Appointment</h2>";
+				echo "<h3>Previous Appointment</h3>";
 				echo "<label for='info'>";
 				echo "Advisor: ", $oldAdvisorName, "<br>";
 				echo "Appointment: ", date('l, F d, Y g:i A', $oldDatephp), "</label><br>";
@@ -64,7 +71,7 @@ $_SESSION["appTime"] = $_POST["appTime"]; // radio button selection from previou
 			}
 			else{$currentAdvisorName = "Group";}
 			//This is your new appointment
-			echo "<h2>Current Appointment</h2>";
+			echo "<h3>Current Appointment</h3>";
 			echo "<label for='newinfo'>";
 			echo "Advisor: ",$currentAdvisorName,"<br>";
 			echo "Appointment: ",date('l, F d, Y g:i A', $currentDatephp),"</label>";
@@ -84,6 +91,6 @@ $_SESSION["appTime"] = $_POST["appTime"]; // radio button selection from previou
 	    </div>
 		</form>
 		</div>
-  </body>
-</html>
+<!--Include footer-->
+<?php include('footer.php'); ?>
 

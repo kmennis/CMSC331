@@ -5,58 +5,50 @@ $debug = false;
 include('../../CommonMethods.php');
 $COMMON = new Common($debug);
 
-$sql = "select * from Proj2Students";
-$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-
-// Get Users info
-while($row = mysql_fetch_row($rs)){
-	if($row[3] == $_SESSION["studID"]){
-		
-		$_SESSION["firstN"] = $row[1];
-		$_SESSION["lastN"] = $row[2];
-		$_SESSION["email"] = $row[4];
-		$_SESSION["major"] = $row[5];
-	}
-}
+//Include functions
+include "Functions.php";
 
 ?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Edit Student Information</title>
-      <link rel='stylesheet' type='text/css' href='css/standard.css'/>
+     <!---  <link rel='stylesheet' type='text/css' href='css/standard.css'/> --->
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header.php');  ?>
   <!-- Current info is indicated as light gray in the initial input. Replace with wanted Data -->
     <div id="login">
       <div id="form">
 			<div class="top">
 			<h2>Edit Student Information<span class="login-create"></span></h2>
 			<form action="StudProcessEdit.php" method="post" name="Edit">
-			<div class="field">
+			<div class="field fancy-form">
 				<label for="firstN">First Name</label>
-				<input id="firstN" size="30" maxlength="50" type="text" name="firstN" required value=<?php echo $_SESSION["firstN"]?>>
+				<input id="firstN" size="30" maxlength="50" type="text" name="firstN" required value=<?php echo getStudentFirstNameByID($_SESSION["studID"])?>>
 			</div>
-			<div class="field">
+			<div class="field fancy-form">
 			  <label for="lastN">Last Name</label>
-			  <input id="lastN" size="30" maxlength="50" type="text" name="lastN" required value=<?php echo $_SESSION["lastN"]?>>
+			  <input id="lastN" size="30" maxlength="50" type="text" name="lastN" required value=<?php echo getStudentLastNameByID($_SESSION["studID"])?>>
 			</div>
-			<div class="field">
+			<div class="field fancy-form">
 				<label for="studID">Student ID</label>
 				<input id="studID" size="30" maxlength="7" type="text" pattern="[A-Za-z]{2}[0-9]{5}" title="AB12345" name="studID" disabled value=<?php echo $_SESSION["studID"]?>>
 			</div>
-			<div class="field">
+			<div class="field fancy-form">
 				<label for="email">E-mail</label>
-				<input id="email" size="30" maxlength="255" type="email" name="email" required value=<?php echo $_SESSION["email"]?>>
+				<input id="email" size="30" maxlength="255" type="email" name="email" required value=<?php echo getStudentEmailByID($_SESSION["studID"])?>>
 			</div>
-			<div class="field">
+			<div class="field fancy-form">
                 <!-- Change Major- Value needs to be Shortened version for database efficiency -->
 				  <label for="major">Major</label>
 				  <select id="major" name = "major">
-					<option value="CMPE" <?php if($_SESSION["major"] == 'CMPE'){echo("selected");}?>>Computer Engineering</option>
-					<option value="CMSC" <?php if($_SESSION["major"] == 'CMSC'){echo("selected");}?>>Computer Science</option>
-					<option value="MENG" <?php if($_SESSION["major"] == 'MENG'){echo("selected");}?>>Mechanical Engineering</option>
-					<option value="CENG" <?php if($_SESSION["major"] == 'CENG '){echo("selected");}?>>Chemical Engineering</option>
+					<option value="CMPE" <?php if(getStudentMajorByID($_SESSION["studID"]) == 'CMPE'){echo("selected");}?>>Computer Engineering</option>
+					<option value="CMSC" <?php if(getStudentMajorByID($_SESSION["studID"]) == 'CMSC'){echo("selected");}?>>Computer Science</option>
+					<option value="MENG" <?php if(getStudentMajorByID($_SESSION["studID"]) == 'MENG'){echo("selected");}?>>Mechanical Engineering</option>
+					<option value="CENG" <?php if(getStudentMajorByID($_SESSION["studID"]) == 'CENG '){echo("selected");}?>>Chemical Engineering</option>
 <!-- someday
 					<option <?php if($_SESSION["major"] == 'Africana Studies'){echo("selected");}?>>Africana Studies</option>
 					<option <?php if($_SESSION["major"] == 'American Studies'){echo("selected");}?>>American Studies</option>
@@ -106,6 +98,6 @@ while($row = mysql_fetch_row($rs)){
 			</div>
 			</div>
 		</form>
-  </body>
-  
-</html>
+
+<!--Include footer-->
+<link rel="import" href="footer.php">

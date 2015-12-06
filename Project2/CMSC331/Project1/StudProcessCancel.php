@@ -4,12 +4,17 @@ $debug = false;
 include('../../CommonMethods.php');
 $COMMON = new Common($debug);
 
+//Include functions
+include "Functions.php";
+
 if($_POST["cancel"] == 'Cancel'){
-	$firstn = $_SESSION["firstN"];
-	$lastn = $_SESSION["lastN"];
+
+	//Changed to function calls
+	$firstn = getStudentFirstNameByID($_SESSION["studID"]);
+	$lastn = getStudentLastNameByID($_SESSION["studID"]);
 	$studid = $_SESSION["studID"];
-	$major = $_SESSION["major"];
-	$email = $_SESSION["email"];
+	$major = getStudentMajorByID($_SESSION["studID"]);
+	$email = getStudentEmailByID($_SESSION["studID"]);
 	
 	//remove stud from EnrolledID
 	$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";

@@ -15,6 +15,7 @@ elseif($_POST["selection"] == 'Cancel'){
 	header('Location: 05StudCancelApp.php');
 }
 elseif($_POST["selection"] == 'Search'){
+
 	header('Location: 09StudSearchApp.php');
 }
 elseif($_POST["selection"] == 'Edit') {

@@ -1,5 +1,9 @@
 <?php
   session_start();
+
+include('../../CommonMethods.php');
+$debug = false;
+$Common = new Common($debug);
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +11,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Create New Admin</title>
-      <link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
       <script type="text/javascript">
     function saveValue(target){
@@ -30,9 +35,7 @@
 			$pass = $_SESSION["AdvPW"];
             $office = $_SESSION["Office"];
 
-			include('../../CommonMethods.php');
-			$debug = false;
-			$Common = new Common($debug);
+
 
         //Cross reference to see if advisor already exists
       $sql = "SELECT * FROM `Proj2Advisors` WHERE `Username` = '$user' AND `FirstName` = '$first' AND  `LastName` = '$last'";

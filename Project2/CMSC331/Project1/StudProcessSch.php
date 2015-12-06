@@ -4,15 +4,20 @@ $debug = false;
 include('../../CommonMethods.php');
 $COMMON = new Common($debug);
 
+//Include functions
+include "Functions.php";
+
 if($_POST["finish"] == 'Cancel'){
 	$_SESSION["status"] = "none";
 }
 else{ //Grab all User data
-	$firstn = $_SESSION["firstN"];
-	$lastn = $_SESSION["lastN"];
+
+	//Changed to function calls
+	$firstn = getStudentFirstNameByID($_SESSION["firstN"]);
+	$lastn = getStudentLastNameByID($_SESSION["lastN"]);
 	$studid = $_SESSION["studID"];
-	$major = $_SESSION["major"];
-	$email = $_SESSION["email"];
+	$major = getStudentMajorByID($_SESSION["major"]);
+	$email = getStudentEmailByID($_SESSION["email"]);
 	$advisor = $_SESSION["advisor"];
 
 	if($debug){ echo("Advisor ->" . $advisor ."<br>\n"); }

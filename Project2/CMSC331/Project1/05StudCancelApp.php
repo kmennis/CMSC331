@@ -3,26 +3,33 @@ session_start();
 $debug = false;
 include('../../CommonMethods.php');
 $COMMON = new Common($debug);
+
+//Include functions
+include "Functions.php";
 ?>
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Cancel Appointment</title>
-      <link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
 		<h1>Cancel Appointment</h1>
 	    <div class="field">
 	    <?php
-			$firstn = $_SESSION["firstN"];
-			$lastn = $_SESSION["lastN"];
+
+	        //Added function calls
+			$firstn = getStudentFirstNameByID($_SESSION["studID"]);
+			$lastn = getStudentLastNameByID($_SESSION["studID"]);
 			$studid = $_SESSION["studID"];
-			$major = $_SESSION["major"];
-			$email = $_SESSION["email"];
+			$major = getStudentMajorByID($_SESSION["studID"]);
+			$email = getStudentEmailByID($_SESSION["studID"]);
 
             //Select the current appointment for user
 			$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
@@ -41,7 +48,7 @@ $COMMON = new Common($debug);
 			else{$oldAdvisorName = "Group";}
 
             //Display current Appointment
-			echo "<h2>Current Appointment</h2>";
+			echo "<h3>Current Appointment</h3>";
 			echo "<label for='info'>";
 			echo "Advisor: ", $oldAdvisorName, "<br>";
 			echo "Appointment: ", date('l, F d, Y g:i A', $oldDatephp), "</label><br>";
@@ -59,5 +66,6 @@ $COMMON = new Common($debug);
 			<p>Click "Cancel" to cancel appointment. Click "Keep" to keep appointment.</p>
 		</div>
 		</form>
-  </body>
-</html>
+
+<!--Include footer-->
+<?php   include('footer.php'); ?>

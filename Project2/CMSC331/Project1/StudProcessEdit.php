@@ -15,7 +15,7 @@ $major = $_POST["major"];
 
 //Update the fields in students table that were changed
 $debug = false;
-include('../CommonMethods.php');
+include('../../CommonMethods.php');
 $COMMON = new Common($debug);
 if($_SESSION["studExist"] == true){
 	$sql = "update `Proj2Students` set `FirstName` = '$firstn', `LastName` = '$lastn', `Email` = '$email', `Major` = '$major' where `StudentID` = '$studid'";
