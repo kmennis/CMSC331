@@ -14,6 +14,7 @@ $major = getStudentMajorByID($_SESSION["studID"]);
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Next Available Appointment</title>
     <link rel='stylesheet' type='text/css' href='css/standard.css'/>
     <link rel='stylesheet' type='text/css' href='style.css'/>
@@ -38,6 +39,7 @@ $major = getStudentMajorByID($_SESSION["studID"]);
                     $advisorID = $row[2];
                     $datephp = strtotime($row[1]);
                     $majorsList = $row[3];
+                    $location = $row[7];
 
                     //if it is not a group advising, get the advisor info
                     if ($advisorID != 0) {
@@ -58,8 +60,11 @@ $major = getStudentMajorByID($_SESSION["studID"]);
                     //Print details about the Next Available Appointment
                     echo "<label class='info' for='info'>";
                     echo "Advisor: ", $advisorName, "<br>";
+                    if($advisorName != "Group"){
+                        echo "Advisor's Office: " .$office ."<br>";
+                    }
                     echo "Appointment: ", date('l, F d, Y g:i A', $datephp), "<br>";
-                    echo "Location of Appointment: " . $office ."<br>" ;
+                    echo "Location of Appointment: " . $location ."<br>" ;
                     echo "Major's Allowed: " . $majorsList . "<br>" ;
                     echo "Your Major: " .$major . "</label>";
                 }

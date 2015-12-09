@@ -10,6 +10,7 @@ $COMMON = new Common($debug);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student Advising Home</title>
 	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
       <link rel='stylesheet' type='text/css' href='style.css'/>
@@ -22,12 +23,12 @@ $COMMON = new Common($debug);
     <div id="login">
       <div id="form">
         <div class="top">
-		<h2>
+
 		<?php
-			echo $_SESSION["firstN"];
-            echo $_SESSION["Major"];
+			//echo $_SESSION["firstN"];
+            //echo $_SESSION["Major"];
 		?>
-        </h2>
+
             <?php
             //Long if odd, short if even
             $widthCounter = 1;

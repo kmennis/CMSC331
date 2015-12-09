@@ -13,7 +13,7 @@ include('Functions.php');
 <div id="header">
     <div class="header-holder">
         <div class="logo"><img src="images/umbcpng.png"></div>
-        <div class="welcome">Welcome, <?php echo getAdvisorFirstName($_SESSION["UserN"]); ?></div>
+        <div class="welcome advising">Welcome, <?php echo getAdvisorFirstName($_SESSION["UserN"]); ?></div>
     </div>
 </div>
 <div class="banner">

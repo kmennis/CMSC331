@@ -12,20 +12,23 @@ if(isset($_POST["advisor"])){
 
 $localAdvisor = $_SESSION["advisor"];
 
+//echo $localAdvisor;
+
+
+
 //Get student Major from Function
 $localMaj = getStudentMajorByID($_SESSION["studID"]);
 
 
 
-$sql = "select * from Proj2Advisors where `id` = '$localAdvisor'";
-$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-$row = mysql_fetch_row($rs);
-$advisorName = $row[1]." ".$row[2];
+
+
 ?>
 <!-- Get data for advisors and user data-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Select Appointment</title>
       <link rel='stylesheet' type='text/css' href='style.css'/>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -43,6 +46,15 @@ $advisorName = $row[1]." ".$row[2];
 
 // http://php.net/manual/en/function.time.php fpr SQL statements below
 // Comparing timestamps, could not remember. 
+        $sql = "select * from Proj2Advisors where `id` = '$localAdvisor'";
+        $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+        $row = mysql_fetch_row($rs);
+        $advisorName = $row[1]." ".$row[2];
+        //echo $row[0];
+        //echo $row[1];
+
+
+
 
 			$curtime = time();
             //Show appointments for individuals

@@ -1,13 +1,19 @@
 <?php
 session_start();
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -15,7 +21,7 @@ session_start();
 <b><font color="red" size="3">Please note only <u>one</u> staff member needs to schedule the GROUP session since it involves all of you. Please identify which advisor will enter this type meeting before continuing.</font></b>
 
         <form action="AdminConfirmScheGroupApp.php" method="post" name="Confirm">
-	    <div class="field">
+	    <div class="field fancy-form">
 	      <label for="Date">Date</label>
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
@@ -29,7 +35,7 @@ session_start();
 	      <input id="Date" type="date" name="Date" placeholder="mm/dd/yyyy" min="2015-08-01" max="2015-12-30" required autofocus> (mm/dd/yyyy)
 	    </div>
 
-      <div class="field">
+      <div class="field fancy-form">
         <label for="Time">Times</label>
         <input type="checkbox" name="time[]" value="08:00:00"> 8:00AM - 8:30AM <br>
         <input type="checkbox" name="time[]" value="08:30:00"> 8:30AM - 9:00AM <br>
@@ -50,7 +56,7 @@ session_start();
        
       </div>
 
-      <div class="field">
+      <div class="field fancy-form">
         <label for="Majors">Majors</label>
           <input value="CMPE" type="checkbox" name="major[]" value="Computer Engineering" checked>Computer Engineering
           <input value="CMSC" type="checkbox" name="major[]" value="Computer Science" checked>Computer Science
@@ -58,7 +64,7 @@ session_start();
           <input  value="CENG" type="checkbox" name="major[]" value="Chemical Engineering" checked>Chemical Engineering
       </div>
 
-        <div class="field">
+        <div class="field fancy-form">
             <label for="Repeat">Repeat Weekly</label>
             <input type="checkbox" name="repeat[]" value="Monday">Monday
             <input type="checkbox" name="repeat[]" value="Tuesday">Tuesday
@@ -67,28 +73,29 @@ session_start();
             <input type="checkbox" name="repeat[]" value="Friday">Friday
         </div>
 
-        <div class="field">
+        <div class="field fancy-form">
         	<h3>Repeat for
         	<input type="number" id="stepper" name="stepper" min="0" max="4" value="0" />
 		more week(s)</h3>
         </div>
 
-	<div class="field">
+	<div class="field  fancy-form">
         	<h3>Student limit: 
         	<input type="number" id="stepper1" name="stepper1" min="1" max="10" value="10" /></h3>
         </div>
-
+            <div class="field fancy-form">
+                <label for="location">Appointment Location</label>
+                <input id="location" size="30" maxlength="50" type="text" name="location" required autofocus>
+            </div>
 	<div class="nextButton">
 		<input type="submit" name="next" class="button large go" value="Create">
-	</div>
-	</div>
+
 	</form>
-		<form method="link" action="AdminUI.php" name="home">
-			<input type="submit" name="next" class="button large" value="Cancel">
-		</form>
-	<?php include('./workOrder/workButton.php'); ?>
+            <form method="link" action="AdminUI.php" name="home">
+                <input type="submit" name="next" class="button large" value="Cancel">
+            </form>
 
+	<?php //include('./workOrder/workButton.php'); ?>
 
-  </body>
-  
-</html>
+<?php include('footer.php'); ?>
+

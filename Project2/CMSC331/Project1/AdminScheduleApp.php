@@ -1,15 +1,21 @@
 <?php
 session_start();
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Schedule Appointment</title>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -23,15 +29,10 @@ session_start();
 	</div>
 	</form>
         </div>
-	</div>
+
 		</form>
 		<form method="link" action="AdminUI.php">
 		<input type="submit" name="home" class="button large" value="Cancel">
 		</form>
    	</div>
-	</div>
-
-		
-  </body>
-  
-</html>
+	<?php   include("footer.php"); ?>

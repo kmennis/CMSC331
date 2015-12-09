@@ -1,12 +1,16 @@
 <?php
 session_start();
 $_SESSION["Delete"] = false;
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Group Appointment</title>
     <script type="text/javascript">
     function saveValue(target){
@@ -14,59 +18,59 @@ $_SESSION["Delete"] = false;
   alert("Value: " + stepVal);
     }
     </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head> 
   <body>
+<?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
           <h1>Edit Group Appointment</h1>
 		  <h2>Select an appointment to change</h2>
-		  <div class="field">
+		  <div class="field fancy-form">
           <?php
-            $debug = false;
-            include('../../CommonMethods.php');
-            $COMMON = new Common($debug);
+
 
             $sql = "SELECT * FROM `Proj2Appointments` WHERE `AdvisorID` = '0' ORDER BY `Time`";
             $rs = $COMMON->executeQuery($sql, "Advising Appointments");
-            $row = mysql_fetch_array($rs, MYSQL_NUM); 
+            $row = mysql_fetch_array($rs, MYSQL_NUM);
 			//first item in row
             if($row){
               echo("<form action=\"AdminProcessEditGroup.php\" method=\"post\" name=\"Confirm\">");
 	echo("<table border='1px'>\n<tr>");
-	echo("<tr><td width='320px'>Time</td><td>Majors</td><td>Seats Enrolled</td><td>Total Seats</td></tr>\n");
+	echo("<tr><td width='320px'>Time</td><td>Majors</td><td>Seats Enrolled</td><td>Total Seats</td><td>Appt. Location</td></td></tr>\n");
 
-              echo("<td><label for='$row[0]'><input type=\"radio\" id='$row[0]' name=\"GroupApp\" 
+              echo("<td><label for='$row[0]'><input type=\"radio\" id='$row[0]' name=\"GroupApp\"
                 required value=\"row[]=$row[1]&row[]=$row[3]&row[]=$row[5]&row[]=$row[6]\">");
               echo(date('l, F d, Y g:i A', strtotime($row[1])). "</label></td>");
               if($row[3]){
-                echo("<td>".$row[3]."</td>"); 
+                echo("<td>".$row[3]."</td>");
               }
               else{
-                echo("<td>Available to all majors</td>"); 
+                echo("<td>Available to all majors</td>");
               }
 
-              echo("<td>$row[5]</td><td>$row[6]");
+              echo("<td>$row[5]</td><td>$row[6]<td>$row[7]</td>");
 			  echo("</label>");
-			
+
 			//rest of row
               echo("</td></tr>\n");
               while ($row = mysql_fetch_array($rs, MYSQL_NUM)) {
-                echo("<tr><td><label for='$row[0]'><input type=\"radio\" id='$row[0]' name=\"GroupApp\" 
+                echo("<tr><td><label for='$row[0]'><input type=\"radio\" id='$row[0]' name=\"GroupApp\"
                   required value=\"row[]=$row[1]&row[]=$row[3]&row[]=$row[5]&row[]=$row[6]\">");
                 echo(date('l, F d, Y g:i A', strtotime($row[1])). "</label></td>");
                 if($row[3]){
-                  echo("<td>".$row[3]."</td>"); 
+                  echo("<td>".$row[3]."</td>");
                 }
                 else{
-                  echo("<td>Available to all majors</td>"); 
+                  echo("<td>Available to all majors</td>");
                 }
 
-                echo("<td>$row[5]</td><td>$row[6]");
+                echo("<td>$row[5]</td><td>$row[6]</td><td>$row[7]</td>");
 				echo("</label>");
-                echo("</td></tr>");
-                
+                echo("</td>");
+                echo("</tr>");
               }
 
 		echo("</table>");
@@ -90,9 +94,8 @@ $_SESSION["Delete"] = false;
           ?>
   </div>
   </div>
-  </div>
-	<?php include('./workOrder/workButton.php'); ?>
-  </div>
-  </body>
-  
-</html>
+
+	<?php //include('./workOrder/workButton.php'); ?>
+
+
+<?php  include('footer.php'); ?>

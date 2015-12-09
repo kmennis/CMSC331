@@ -7,8 +7,8 @@ session_start();
 //$_SESSION["major"] = $_POST["major"];
 
 //Update variables where fields are changed
-$firstn = strtoupper($_POST["firstN"]);
-$lastn = strtoupper($_POST["lastN"]);
+$firstn = $_POST["firstN"];
+$lastn = $_POST["lastN"];
 $studid = $_SESSION["studID"];
 $email = $_POST["email"];
 $major = $_POST["major"];

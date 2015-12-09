@@ -5,3 +5,36 @@
 
 /****** Footer CSS for F1 F3 ************/
 
+#footer{
+  height:85px;
+  width:100%;
+  background:$white;
+  box-shadow: 6px 5px 8px #ccc;
+  @include breakpoint($mobile){
+    height:104px;
+  }
+  .footer-holder{
+    max-width:1130px;
+    margin:auto;
+
+    .logo-bottom{
+      display:inline-block;
+      @include breakpoint($mobile){
+        width:51%;
+      }
+    }
+    .copy{
+      display: inline-block;
+      font-size: 20px;
+      height: 100%;
+      padding-left: 30px;
+      vertical-align: middle;
+      font-family: $base-font-family;
+      @include breakpoint($mobile){
+        padding-left:5px;
+        padding-top:14px;
+      }
+
+    }
+  }
+}

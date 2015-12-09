@@ -10,6 +10,7 @@ $COMMON = new Common($debug);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search Appointments</title>
     <script type="text/javascript">
     function saveValue(target){
@@ -17,14 +18,16 @@ $COMMON = new Common($debug);
 	alert("Value: " + stepVal);
     }
     </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
 			<h1>Search results</h1>
-			<div class="field">
+			<div class="field fancy-form">
 			<p>Showing results for: </p>
 			<?php
 				$date = $_POST["date"];
@@ -129,7 +132,8 @@ $COMMON = new Common($debug);
 									"<br>Major: ". $row[3]. 
 									"<br>Enrolled Students: ". $row[4]. 
 									"<br>Number of enrolled student(s): ". $row[5]. 
-									"<br>Maximum number of students allowed: ". $row[6]. "<br><br>";
+									"<br>Maximum number of students allowed: ". $row[6].
+                                    "<br>Appointment Location: ". $row[7] . "<br><br>" ;
 							array_push($results, $found);
 						}
 					}
@@ -170,7 +174,9 @@ $COMMON = new Common($debug);
 											"<br>Major: ". $row[3]. 
 											"<br>Enrolled Students: ". $row[4]. 
 											"<br>Number of enrolled student(s): ". $row[5]. 
-											"<br>Maximum number of students allowed: ". $row[6]. "<br><br>";
+
+                                             "<br>Maximum number of students allowed: ". $row[6].
+                                            "<br> Appointment Location: ". $row[7] . "<br><br>" ;
 									array_push($results, $found);
 								}
 							}
@@ -211,7 +217,9 @@ $COMMON = new Common($debug);
 											"<br>Major: ". $row[3]. 
 											"<br>Enrolled Students: ". $row[4]. 
 											"<br>Number of enrolled student(s): ". $row[5]. 
-											"<br>Maximum number of students allowed: ". $row[6]. "<br><br>";
+
+                                    "<br>Maximum number of students allowed: ". $row[6].
+                                    "<br> Appointment Location: ". $row[7] . "<br><br>" ;
 									array_push($results, $found);
 								}
 							}
@@ -233,10 +241,11 @@ $COMMON = new Common($debug);
 		</form>
 	</div>
 	</div>
+        <div class="bottom">
+            <p>If the Major category is followed by a blank, then it is open for all majors.</p>
+        </div>
 	</div>
-	<div class="bottom">
-		<p>If the Major category is followed by a blank, then it is open for all majors.</p>
-	</div>
+
 	<?php include('./workOrder/workButton.php'); ?>
 
 	</div>

@@ -9,22 +9,25 @@ $COMMON = new Common($debug);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search Appointments</title>
-      <link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
 		<h1>Search Appointments</h1>
         <form action="AdminSearchResults.php" method="post" name="Confirm">
-	    <div class="field">
+	    <div class="field fancy-form">
 			<label for="date">Date</label>
 			<input id="date" type="date" name="date" placeholder="mm/dd/yyyy" autofocus> (mm/dd/yyyy)
 	    </div>
 
-	    <div class="field">
-	      <label for="time">Time</label><span style="font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+	    <div class="field fancy-form">
+	      <label for="time">Time</label>
 		<input type="checkbox" name="time[]" value="8:00:00"> 8:00am - 8:30am<br>
 		<input type="checkbox" name="time[]" value="8:30:00"> 8:30am - 9:00am<br>
 		<input type="checkbox" name="time[]" value="9:00:00"> 9:00am - 9:30am<br>
@@ -40,10 +43,10 @@ $COMMON = new Common($debug);
 		<input type="checkbox" name="time[]" value="14:00:00"> 2:00pm - 2:30pm<br>
 		<input type="checkbox" name="time[]" value="14:30:00"> 2:30pm - 3:00pm<br>
 		<input type="checkbox" name="time[]" value="15:00:00"> 3:00pm - 3:30pm<br>
-		<input type="checkbox" name="time[]" value="15:30:00"> 3:30pm - 4:00pm<br></span>
+		<input type="checkbox" name="time[]" value="15:30:00"> 3:30pm - 4:00pm<br>
 	    </div>
 
-	    <div class="field">
+	    <div class="field fancy-form">
 	      <label for="advisor">Advisor</label>
 	      	<select id="advisor" name="advisor">
 				<option value="">All appointments</option>
@@ -59,17 +62,17 @@ $COMMON = new Common($debug);
 			</select>
 	    </div>
 		
-		<div class="field">
+		<div class="field fancy-form">
 			<label for="studID">Student ID</label>
 			<input id="studID" type="text" name="studID" maxlength="7" pattern="[A-Za-z]{2}[0-9]{5}" title="AB12345" placeholder="AB12345">
 	    </div>
 		
-		<div class="field">
+		<div class="field fancy-form">
 			<label for="studLN">Student Last Name</label>
 			<input id="studLN" type="text" name="studLN">
 	    </div>
 		
-		<div class="field">
+		<div class="field fancy-form">
 			<label for="filter">Filter Open/Closed Appointments</label>
 			<select id="filter" name="filter">
 				<option value="">All</option>
@@ -83,8 +86,7 @@ $COMMON = new Common($debug);
 	</div>
 	</div>
 	</form>
-	<br>
-	<br>
+
 	<form method="link" action="AdminUI.php">
 	<input type="submit" name="next" class="button large go" value="Return to Home">
 	</form>

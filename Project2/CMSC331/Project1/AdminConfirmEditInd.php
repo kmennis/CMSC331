@@ -1,11 +1,15 @@
 <?php
 session_start();
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Individual Appointment</title>
     <script type="text/javascript">
     function saveValue(target){
@@ -13,19 +17,19 @@ session_start();
 	alert("Value: " + stepVal);
     }
     </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
           <h1>Removed Appointment</h1><br>
             <!-- Show the removed appointments -->
-		  <div class="field">
+		  <div class="field fancy-form">
           <?php
-            $debug = false;
-            include('../../CommonMethods.php');
-            $COMMON = new Common($debug);
+
             $ind = $_POST["IndApp"];
             parse_str($ind);
             //Show advisor

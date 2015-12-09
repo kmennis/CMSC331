@@ -11,6 +11,7 @@ $studID = $_SESSION["studID"];
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>View Appointment</title>
       <link rel='stylesheet' type='text/css' href='style.css'/>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -34,6 +35,7 @@ $studID = $_SESSION["studID"];
 				$row = mysql_fetch_row($rs); // get legit data
 				$advisorID = $row[2];
 				$datephp = strtotime($row[1]);
+                $location = $row[7];
 
 				//if its not group advising, get the advisor details.
 				if($advisorID != 0){
@@ -51,8 +53,11 @@ $studID = $_SESSION["studID"];
                 //Print out Info for appointment
 				echo "<label class='info' for='info'>";
 				echo "Advisor: ", $advisorName, "<br>";
+                if($advisorName != "Group"){
+                    echo "Advisor's Office: " .$office ."<br>";
+                }
 				echo "Appointment: ", date('l, F d, Y g:i A', $datephp) , "<br>";
-                echo "Location of Appointment: " .$office .  "</label>";
+                echo "Location of Appointment: " .$location .  "</label>";
 			}
 			else // something is up, and there DB table needs to be fixed
 			{

@@ -9,6 +9,6 @@ session_destroy();
 
 
 if($flag) { header("Location: 01StudSignIn.html"); }
-else { header("Location: StudentAdminSignIn.html"); }
+else { header("Location: index.php"); }
 
 ?>

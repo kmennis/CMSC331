@@ -10,13 +10,18 @@
   width:100%;
   background:$white;
   box-shadow: 6px 5px 8px #ccc;
-
+  @include breakpoint($mobile){
+    height:104px;
+  }
   .header-holder{
     max-width:1130px;
     margin:auto;
 
     .logo{
       display:inline-block;
+      @include breakpoint($mobile){
+        width:51%;
+      }
     }
     .welcome{
       display: inline-block;
@@ -25,6 +30,66 @@
       padding-left: 30px;
       vertical-align: middle;
       font-family: $base-font-family;
+      @include breakpoint($mobile){
+        padding-left:5px;
+        padding-top:14px;
+      }
+      &.advising{
+        margin-bottom:70px;
+      }
+
+    }
+  }
+}
+
+.nextApp{
+  width:100%;
+  background-color: rgba(255, 194, 14, 0.70);
+  .nextApp-holder{
+    max-width:1130px;
+    margin:auto;
+    padding:8px 0;
+    .warning{
+      text-align: center;
+
+      p{
+        &:before{
+          position: absolute;
+          left: 0;
+          font-size: 18px;
+          height: 10px;
+          width: 10px;
+          font-family:"FontAwesome";
+          content:"\f071";
+          color:$black;
+          @include breakpoint($mobile){
+            left:7px;
+          }
+        }
+      }
+    }
+    .check{
+      text-align: center;
+      p {
+        &:before {
+          position: absolute;
+          left: 0;
+          font-size: 18px;
+          height: 10px;
+          width: 10px;
+          font-family: "FontAwesome";
+          content: "\f058";
+          color: $black;
+        }
+      }
+    }
+    p{
+      color:$black;
+      margin-bottom:0;
+      display: inline-block;
+      position: relative;
+      padding-left:32px;
+
     }
   }
 }

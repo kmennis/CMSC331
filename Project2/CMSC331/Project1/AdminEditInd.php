@@ -1,11 +1,16 @@
 <?php
 session_start();
+$debug = false;
+include('../../CommonMethods.php');
+include('Functions.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Individual Appointment</title>
     <script type="text/javascript">
     function saveValue(target){
@@ -13,20 +18,20 @@ session_start();
 	alert("Value: " + stepVal);
     }
     </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head> 
   <body>
-    <div id="login">
+  <?php include('header-advising.php');  ?>
+
+  <div id="login">
       <div id="form">
         <div class="top">
           <h2>Select which appointment you would like to change: </h2>
-		  <div class="field">
+		  <div class="field fancy-form">
 		  
           <?php
-            $debug = false;
-            include('../../CommonMethods.php');
-            include('Functions.php');
-            $COMMON = new Common($debug);
+
 
           //Select the appointments that are individual and order them by time.
             $sql = "SELECT * FROM `Proj2Appointments` WHERE `AdvisorID` != '0' and `Time` > '".date('Y-m-d H:i:s')."' ORDER BY `Time`";
@@ -133,10 +138,7 @@ session_start();
 	<div class="bottom">
 		<p style='color:red'>Please note that individual appointments can only be removed from schedule.</p>
 	</div>
-	</div>
-	<?php include('./workOrder/workButton.php'); ?>
 
-	</div>
-  </body>
-  
-</html>
+	<?php// include('./workOrder/workButton.php'); ?>
+
+<?php   include("footer.php"); ?>

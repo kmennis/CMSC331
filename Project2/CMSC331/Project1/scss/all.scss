@@ -54,6 +54,8 @@
 @import "base/base-reset";
 @import "mq";
 @import "base/header";
+@import "base/footer";
+
 
 html{
 
@@ -61,9 +63,34 @@ html{
   font-size: 13px;
   position: relative;
 }
+input,
+textarea,
+select{
+  @include breakpoint($mobile){
+    width:100%;
+  }
+}
+td{
+  padding:5px;
+}
+h1{
 
+  @include breakpoint($mobile){
+    font-size: 30px;
+  }
+}
+h2{
 
+  @include breakpoint($mobile){
+    font-size: 26px;
+  }
+}
+h3{
 
+  @include breakpoint($mobile){
+    font-size: 20px;
+  }
+}
 
 iframe{
 
@@ -74,13 +101,19 @@ iframe{
   width:100% !important;
   background-image: url("images/dotback.png");
   margin-top: 0 !important;
-  padding:0 20px !important;
+  padding:0 20px ;
+  @include breakpoint($mobile){
+    padding:0 10px;
+  }
 
   #form{
     margin:auto;
     max-width:1130px;
     background:$white;
     padding:20px;
+    @include breakpoint($mobile){
+      padding:5px;
+    }
   }
 
   .button-fancy{
@@ -89,10 +122,13 @@ iframe{
 
   .selections > form {
     display: flex;
+    display:-webkit-flex;
+    -webkit-flex-wrap:wrap;
     flex-wrap: wrap;
 
     .large{
       flex-grow:1;
+      -webkit-flex-grow:1;
 
       &.thewidth1, &.thewidth4, &.thewidth5, &.thewidth7{
           //width:69%
@@ -110,8 +146,9 @@ iframe{
         }
         @include breakpoint($mobile){
           width:100%;
+          height: 220px;
         }
-        width:32%;
+        width:30%;
         border: none;
         //color: #fff;
         background:rgba(237, 28, 36, 0.68) none repeat scroll 0 0;
@@ -119,10 +156,10 @@ iframe{
         //display: inline-block;
         font-size: 11px;
         //font-weight: bold;
-        height: 250px;
+        height: 300px;
         overflow: visible;
         //padding: 50px;
-        margin: 5px;
+        margin: 9px;
         text-decoration: none;
         vertical-align: top;
         white-space: nowrap;
@@ -132,6 +169,81 @@ iframe{
         -webkit-border-radius: 4px;
         line-height: 25px;
         position: relative;
+        transition:.3s ease-out;
+        -webkit-transition: .3s ease-out;
+        -o-transition:.3s ease-out;
+        -ms-transition:.3s ease-out;
+        &.pencil-square{
+          &:before{
+            content:"\f044";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
+          }
+        }
+        &.cog-lots{
+          &:before{
+            content:"\f085";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
+          }
+        }
+        &.binoculars{
+          &:before{
+            content:"\f1e5";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
+          }
+        }
+
+        &.users{
+          &:before{
+            content:"\f0c0";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
+          }
+        }
+        &.printer{
+          &:before{
+            content:"\f02f";
+            font-family:FontAwesome;
+            height:50px;
+            width:50px;
+            font-size:63px;
+            color:white;
+            opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
+          }
+        }
         &.pencil{
           &:before{
             content:"\f040";
@@ -141,6 +253,9 @@ iframe{
             font-size:63px;
             color:white;
             opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
           }
         }
         &.eye{
@@ -152,6 +267,9 @@ iframe{
           font-size:63px;
           color:white;
           opacity: 1;
+          @include breakpoint($mobile){
+            font-size: 56px;
+          }
         }
         }
         &.redo{
@@ -163,6 +281,9 @@ iframe{
             font-size:63px;
             color:white;
             opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
           }
         }
         &.mag-glass{
@@ -174,6 +295,9 @@ iframe{
             font-size:63px;
             color:white;
             opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
           }
         }
         &.cog{
@@ -185,6 +309,9 @@ iframe{
             font-size:63px;
             color:white;
             opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
           }
         }
         &.calendar{
@@ -196,6 +323,9 @@ iframe{
             font-size:63px;
             color:white;
             opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
           }
         }
         &.ban{
@@ -207,6 +337,9 @@ iframe{
             font-size:63px;
             color:white;
             opacity: 1;
+            @include breakpoint($mobile){
+              font-size: 56px;
+            }
           }
         }
 
@@ -218,6 +351,23 @@ iframe{
           left:50%;
           transform:translateX(-50%);
           -webkit-transform:translateX(-50%);
+          @include breakpoint($mobile){
+            font-size: 18px;
+          }
+
+        }
+        &:hover{
+          background-color: $white;
+
+          border: 2px solid rgba(237, 28, 36, 0.68);
+          > span{
+            color:rgba(237, 28, 36, 0.68) !important;
+
+          }
+
+            &:before{
+              color:rgba(153, 153, 153, 0.67);
+            }
 
         }
       }
@@ -270,6 +420,11 @@ iframe{
   -webkit-appearance: none;
   -webkit-border-radius: 4px;
   line-height: 25px;
+  transition: .5s;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -webkit-transition: .5s;
+
   &:hover{
     background:$red;
     color:$white;
@@ -284,6 +439,9 @@ iframe{
     height: 250px;
     overflow: hidden;
     width: 100%;
+    @include breakpoint($mobile){
+      height:130px;
+    }
     .image{
       left: 50%;
       position: relative;
@@ -314,6 +472,7 @@ iframe{
   .fancy-form{
     color:#666;
     padding-bottom:22px;
+
     label{
       padding-bottom:5px;
     }
@@ -329,4 +488,19 @@ iframe{
 }
 .info{
   margin-bottom:20px;
+}
+
+/* Force Tables to Be some what repsonsive     */
+@include breakpoint($mobile) {
+  table, thead, tbody, th, td, tr {
+
+    display: block;
+
+  }
+  table img {
+    max-width: 100%;
+  }
+  td {
+    width: 100% !important;
+  }
 }

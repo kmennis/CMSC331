@@ -12,6 +12,7 @@ include "Functions.php";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Student Information</title>
      <!---  <link rel='stylesheet' type='text/css' href='css/standard.css'/> --->
       <link rel='stylesheet' type='text/css' href='style.css'/>

@@ -14,6 +14,7 @@ $_SESSION["PassCon"] = false;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Home</title>
       <link rel='stylesheet' type='text/css' href='style.css'/>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -23,7 +24,7 @@ $_SESSION["PassCon"] = false;
     <div id="login">
       <div id="form">
         <div class="top">
-	<h2> Hello 
+
 	<?php
 
 	if(!isset($_SESSION["UserN"])) // someone landed this page by accident
@@ -32,29 +33,30 @@ $_SESSION["PassCon"] = false;
 	}		
 
 		$User = $_SESSION["UserN"];
+
 		$Pass = getAdvisorPassword($_SESSION["UserN"]);
+
 		$sql = "SELECT `firstName` FROM `Proj2Advisors` 
 			WHERE `Username` = '$User' 
 			and `Password` = '$Pass'";
 
 		$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 		$row = mysql_fetch_row($rs);
-		echo $row[0];
+		//echo $row[0];
 	?>
-	</h2>
-	<p>This is testing for the queries</p>
-            <p>This is my First Name <?php echo getAdvisorFirstName($_SESSION["UserN"]);  ?>  </p>
-            <p> My office is in <?php echo getAdvisorOffice($_SESSION["UserN"]);  ?></p>
-            <p> My Last name is <?php   echo getAdvisorLastName($_SESSION["UserN"]); ?></p>
+
+
+            <div class="selections">
 	<form action="AdminProcessUI.php" method="post" name="UI">
   
-		<input type="submit" name="next" class="button large selection" value="Schedule appointments"><br>
-		<input type="submit" name="next" class="button large selection" value="Print schedule for a day"><br>
-		<input type="submit" name="next" class="button large selection" value="Edit appointments"><br>
-		<input type="submit" name="next" class="button large selection" value="Search for an appointment"><br>
-		<input type="submit" name="next" class="button large selection" value="Create new Admin Account"><br>
+		<button type="submit" name="next" class="button-fancy large selection pencil-square" value="Schedule appointments"><span>Schedule Appointments</span></button><br>
+		<button type="submit" name="next" class="button-fancy large selection printer" value="Print schedule for a day"><span>Print Schedule</span></button><br>
+		<button type="submit" name="next" class="button-fancy large selection cog-lots" value="Edit appointments"><span>Edit Appointments</span></button><br>
+		<button type="submit" name="next" class="button-fancy large selection binoculars" value="Search for an appointment"><span>Search for an Appointment</span></button><br>
+		<button type="submit" name="next" class="button-fancy large selection users" value="Create new Admin Account"><span>Create New Admin</span></button><br>
 	
 	</form>
+                </div>
 	<br>
 
 	<form method="link" action="Logout.php">

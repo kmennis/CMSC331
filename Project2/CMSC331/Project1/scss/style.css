@@ -1,3 +1,32 @@
 /****** Footer CSS for F1 F3 ************/
+#footer {
+  height: 85px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 6px 5px 8px #ccc; }
+  @media only screen and (max-width: 767px) {
+    #footer {
+      height: 104px; } }
+  #footer .footer-holder {
+    max-width: 1130px;
+    margin: auto; }
+    #footer .footer-holder .logo-bottom {
+      display: inline-block; }
+      @media only screen and (max-width: 767px) {
+        #footer .footer-holder .logo-bottom {
+          width: 51%; } }
+    #footer .footer-holder .copy {
+      display: inline-block;
+      font-size: 20px;
+      height: 100%;
+      padding-left: 30px;
+      vertical-align: middle;
+      font-family: "Roboto", sans-serif; }
+      @media only screen and (max-width: 767px) {
+        #footer .footer-holder .copy {
+          padding-left: 5px;
+          padding-top: 14px; } }
+      #footer .footer-holder .copy.welcome {
+        margin-bottom: 70px; }
 
 /*# sourceMappingURL=style.css.map */

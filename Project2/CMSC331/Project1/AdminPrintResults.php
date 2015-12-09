@@ -1,12 +1,15 @@
 <?php
 session_start();
 $debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Print Schedule</title>
     <script type="text/javascript">
     function saveValue(target){
@@ -14,9 +17,11 @@ $debug = false;
 	alert("Value: " + stepVal);
     }
     </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -26,8 +31,7 @@ $debug = false;
 	$date = $_POST["date"];
 	$type = $_POST["type"];
 			
-	include('../../CommonMethods.php');
-	$COMMON = new Common($debug);
+
 
 
       $User = $_SESSION["UserN"];
@@ -38,6 +42,7 @@ $debug = false;
       $id = $row[0];
       $FirstName = $row[1];
       $LastName = $row[2];
+
 		
 			echo("<h2>Schedule for $FirstName $LastName<br>$date</h2>");
       $date = date('Y-m-d', strtotime($date));
@@ -59,14 +64,10 @@ $debug = false;
 	</form>
 
 	</div>
-	</div>
-	<?php include('./workOrder/workButton.php'); ?>
-	</div>
 
-  </body>
-  
-</html>
+	<?php //include('./workOrder/workButton.php'); ?>
 
+          <?php  include("footer.php");  ?>
 
 <?php
 
@@ -74,7 +75,7 @@ function displayGroup($id, $date)
 {
 	global $debug; global $COMMON;
 
-	$sql = "SELECT `Time`, `Major`, `EnrolledID`, `EnrolledNum`, `Max` FROM `Proj2Appointments` 
+	$sql = "SELECT `Time`, `Major`, `EnrolledID`, `EnrolledNum`, `Max`, `MeetingOffice` FROM `Proj2Appointments`
 	WHERE `Time` LIKE '$date%' AND `AdvisorID` = 0 AND `MAX` > 1 ORDER BY `Time` ";
 
 	// ******************************************************************
@@ -92,7 +93,7 @@ function displayGroup($id, $date)
 
 	echo("<h3>Group Appointments:</h3>");
 	echo("<table border='1'><th colspan='4'>Group Appointments</th>\n");
-	echo("<tr><td width='60px'>Time:</td><td>Majors Included:</td><td>students enrolled</td><td>Number of seats</td></tr>\n");
+	echo("<tr><td width='60px'>Time:</td><td>Majors Included:</td><td>students enrolled</td><td>Number of seats</td><td>Appt. Location</td></tr>\n");
 
         while ($row = mysql_fetch_array($rs, MYSQL_NUM)) 
 	{
@@ -101,6 +102,7 @@ function displayGroup($id, $date)
                  echo("<td>".$row[1]."</td>");
 		echo("<td>(".$row[3].")".$row[2]."</td>");
 		echo("<td>".$row[4]."</td>");
+        echo("<td>".$row[5]."</td>");
 		echo("</tr>\n");
 	}
         echo("</table><br><br>\n");
@@ -110,7 +112,7 @@ function displayIndividual($id, $date)
 {
 	global $debug; global $COMMON;
 
-        $sql = "SELECT `Time`, `Major`, `EnrolledID` FROM `Proj2Appointments` 
+        $sql = "SELECT `Time`, `Major`, `EnrolledID`,  `MeetingOffice` FROM `Proj2Appointments`
         WHERE `Time` LIKE '$date%' AND `AdvisorID` = $id AND `MAX` = 1 ORDER BY `Time`";
         $rs = $COMMON->executeQuery($sql, "Advising Appointments");
 	$matches = mysql_num_rows($rs); // see how many rows were collected by the query
@@ -119,7 +121,7 @@ function displayIndividual($id, $date)
 
 	echo("<h3>Individual Appointments:</h3>");
 	echo("<table border='1'><th colspan='4'>Individual Appointments</th>\n");
-	echo("<tr><td width='60px'>Time:</td><td>Majors Included:</td><td>Student's name</td><td>Student ID</td></tr>\n");
+	echo("<tr><td width='60px'>Time:</td><td>Majors Included:</td><td>Student's name</td><td>Student ID</td><td>Appt. Location</td></tr>\n");
 
         while ($row = mysql_fetch_array($rs, MYSQL_NUM)) 
 	{
@@ -131,6 +133,7 @@ function displayIndividual($id, $date)
 		$trdrow = mysql_fetch_row($trdrs);
 		echo("<td>".$trdrow[0]." ".$trdrow[1]."</td>");
 		echo("<td>".$row[2]."</td>");
+        echo("<td>".$row[3]."</td>");
 		echo("</tr>");
 	}
         echo("</table><br><br>");

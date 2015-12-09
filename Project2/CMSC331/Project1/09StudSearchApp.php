@@ -8,11 +8,14 @@ $COMMON = new Common($debug);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search for Appointment</title>
-      <link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   </head>
   <body>
+  <?php include('header.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -69,4 +72,5 @@ $COMMON = new Common($debug);
 		</form>
 
 <!--Include footer-->
-<link rel="import" href="footer.php">
+
+        <?php include("footer.php");  ?>

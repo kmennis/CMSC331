@@ -9,9 +9,12 @@ $COMMON = new Common($debug);
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
@@ -22,6 +25,7 @@ $COMMON = new Common($debug);
 			$majors = $_POST["major"];
 			$repeatDays = $_POST["repeat"];
 			$repeatWeek = $_POST["stepper"];
+            $location = $_POST["location"];
 			
 			//one week with given start date (Ex. Thur - Wed) ['Thursday']=>[########]
 			$d0 = $date;
@@ -96,11 +100,12 @@ $COMMON = new Common($debug);
 				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 				$row = mysql_fetch_row($rs);
 				echo date('l, F d, Y g:i A', strtotime($dt)), " <br> Majors: ", $majorPrint;
+                echo '<br> Meeting Location: ' .$location;
 				if($row){
 					echo "<br><span style='color:red'>!!</span>";
 				}
 				else{
-					$sql = "insert into Proj2Appointments (`Time`, `AdvisorID`, `Major`, `Max`) values ('$dt', '$id', '$majorDB',1)";
+					$sql = "insert into Proj2Appointments (`Time`, `AdvisorID`, `Major`, `Max` ,`MeetingOffice`) values ('$dt', '$id', '$majorDB',1,'$location')";
 					$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 				}
 				echo "<br><br>";
@@ -114,9 +119,6 @@ $COMMON = new Common($debug);
 	<div class="bottom">
 		<p><span class="appAlreadyExist" >!!</span> indicates that this appointment already exists. A repeat appointment was not made.</p>
 	</div>
-	</div>
-	</div>
+
 	</form>
-  </body>
-  
-</html>
+   <?php include('footer.php'); ?>

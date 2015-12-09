@@ -10,3 +10,4 @@
 
 # enables PHP sessions
 php_value session.save_path /afs/umbc.edu/public/web/sites/coeadvising/prod/php/session
+

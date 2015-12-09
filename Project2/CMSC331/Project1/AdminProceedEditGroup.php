@@ -1,11 +1,15 @@
 <?php
 session_start();
+$debug = false;
+include('../../CommonMethods.php');
+$COMMON = new Common($debug);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Group Appointment</title>
     <script type="text/javascript">
     function saveValue(target){
@@ -13,18 +17,18 @@ session_start();
       alert("Value: " + stepVal);
     }
     </script>
-	<link rel='stylesheet' type='text/css' href='css/standard.css'/>
+      <link rel='stylesheet' type='text/css' href='style.css'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head> 
   <body>
+  <?php include('header-advising.php');  ?>
     <div id="login">
       <div id="form">
         <div class="top">
           <h1>Edit Group Appointment</h1>
-		  <div class="field">
+		  <div class="field fancy-form">
           <?php
-            $debug = false;
-            include('../../CommonMethods.php');
-            $COMMON = new Common($debug);
+
 
             $group = $_SESSION["GroupApp"];
             parse_str($group);
@@ -43,6 +47,12 @@ session_start();
             echo("<input type=\"number\" id=\"stepper\" name=\"stepper\" min=\"$row[2]\" max=\"$row[3]\" value=\"$row[3]\" />");
 
             echo("<br><br>");
+          ?>
+              <div class="field fancy-form">
+                  <label for="location">Appointment Location</label>
+                  <input id="location" size="30" maxlength="50" type="text" name="location" required autofocus>
+              </div>
+              <?php
 
             echo("<div class=\"nextButton\">");
             echo("<input type=\"submit\" name=\"next\" class=\"button large go\" value=\"Submit\">");
@@ -56,9 +66,7 @@ session_start();
             echo("</div>");
           ?>
 		  </div>
-  </div>
-  </div>
+
   </form>
-  </body>
-  
-</html>
+
+            <?php  include('footer.php'); ?>>

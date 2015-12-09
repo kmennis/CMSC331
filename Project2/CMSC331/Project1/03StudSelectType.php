@@ -7,6 +7,7 @@ $COMMON = new Common($debug);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Select Advising Type</title>
 
       <link rel='stylesheet' type='text/css' href='style.css'/>
